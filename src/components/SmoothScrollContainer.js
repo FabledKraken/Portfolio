@@ -2,8 +2,10 @@ import React, { createContext, useRef, useEffect, useState } from 'react';
 import Scrollbar from 'smooth-scrollbar';
 import styled from 'styled-components';
 
+// Create a context for the scrollbar instance
 export const ScrollbarContext = createContext(null);
 
+// Styled component for the scroll container
 const ScrollContainer = styled.div`
   width: 100%;
   height: 100vh;
@@ -11,11 +13,12 @@ const ScrollContainer = styled.div`
 `;
 
 const SmoothScrollContainer = ({ children }) => {
-  const scrollRef = useRef(null);
-  const [scrollbar, setScrollbar] = useState(null);
+  const scrollRef = useRef(null); // Reference for the scroll container
+  const [scrollbar, setScrollbar] = useState(null); // State for the scrollbar instance
 
   useEffect(() => {
     if (scrollRef.current) {
+      // Initialize the smooth scrollbar
       const scrollbarInstance = Scrollbar.init(scrollRef.current, {
         damping: 0.1,
         thumbMinSize: 20,
@@ -27,7 +30,7 @@ const SmoothScrollContainer = ({ children }) => {
       setScrollbar(scrollbarInstance);
 
       return () => {
-        scrollbarInstance.destroy();
+        scrollbarInstance.destroy(); // Cleanup the scrollbar instance on unmount
       };
     }
   }, []);

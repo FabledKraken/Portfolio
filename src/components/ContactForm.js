@@ -3,10 +3,12 @@ import emailjs from 'emailjs-com';
 import styled from 'styled-components';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import backgroundImage from '../assets/Contact_Page.jpg';
-import linkedInIcon from '../assets/linkedin-icon.png'; // Add your LinkedIn icon here
-import githubIcon from '../assets/github-icon.png'; // Add your GitHub icon here
 
+import backgroundImage from '../assets/Contact_Page.jpg';
+import linkedInIcon from '../assets/linkedin-icon.png';
+import githubIcon from '../assets/github-icon.png'; 
+
+// Styled component for the contact container
 const ContactContainer = styled.div`
   background: url(${backgroundImage}) no-repeat center center fixed;
   background-size: cover;
@@ -14,40 +16,44 @@ const ContactContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensure it takes the full viewport height */
+  min-height: 100vh; 
   box-sizing: border-box;
-  color: white; /* Set font color to white */
+  color: white; 
   padding: 50px 20px;
   position: relative;
-  padding-bottom: 80px; /* Add padding to avoid overlap with footer */
+  padding-bottom: 80px;
 `;
 
+// Styled component for the title
 const Title = styled.h2`
-  font-size: 5em; /* Increase font size to 5em */
+  font-size: 5em;
   margin-bottom: 20px;
   text-align: center;
-  color: white; /* Light grey color for the title */
-  text-decoration: underline; /* Underline the title */
+  color: white; 
+  text-decoration: underline;
 `;
 
+// Styled component for the content wrapper
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
+  justify-content: center; 
+  align-items: center; 
   width: 100%;
-  max-width: 1200px; /* Adjust as needed */
-  background: rgba(0, 0, 0, 0.7); /* Add a semi-transparent background for contrast */
+  max-width: 1200px; 
+  background: rgba(0, 0, 0, 0.7); 
   padding: 40px;
   border-radius: 8px;
 `;
 
+// Styled component for the form
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
 `;
 
+// Styled component for the input fields
 const Input = styled.input`
   margin-bottom: 15px;
   padding: 15px;
@@ -56,16 +62,17 @@ const Input = styled.input`
   border-radius: 4px;
   background: #f9f9f9;
   color: #333;
-  font-family: 'Helvetica, sans-serif'; /* Ensure consistent font family */
+  font-family: 'Helvetica, sans-serif'; 
 
   &::placeholder {
-    color: #666; /* Change placeholder text color */
-    opacity: 1; /* Override default opacity */
-    font-style: italic; /* Italicize placeholder text */
-    font-family: 'Helvetica, sans-serif'; /* Ensure consistent font family */
+    color: #666; 
+    opacity: 1; 
+    font-style: italic; 
+    font-family: 'Helvetica, sans-serif';
   }
 `;
 
+// Styled component for the text area
 const TextArea = styled.textarea`
   margin-bottom: 15px;
   padding: 15px;
@@ -75,16 +82,17 @@ const TextArea = styled.textarea`
   background: #f9f9f9;
   color: #333;
   resize: none;
-  font-family: 'Helvetica, sans-serif'; /* Ensure consistent font family */
+  font-family: 'Helvetica, sans-serif';
 
   &::placeholder {
-    color: #666; /* Change placeholder text color */
-    opacity: 1; /* Override default opacity */
-    font-style: italic; /* Italicize placeholder text */
-    font-family: 'Helvetica, sans-serif'; /* Ensure consistent font family */
+    color: #666;
+    opacity: 1; 
+    font-style: italic; 
+    font-family: 'Helvetica, sans-serif';
   }
 `;
 
+// Styled component for the submit button
 const Button = styled.button`
   padding: 15px;
   font-size: 1.25em;
@@ -100,6 +108,7 @@ const Button = styled.button`
   }
 `;
 
+// Styled component for the links container
 const LinksContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -107,6 +116,7 @@ const LinksContainer = styled.div`
   margin-top: 20px;
 `;
 
+// Styled component for individual link items
 const LinkItem = styled.a`
   margin: 0 15px;
   transition: transform 0.3s ease;
@@ -116,22 +126,25 @@ const LinkItem = styled.a`
   }
 `;
 
+// Styled component for the icons
 const Icon = styled.img`
-  width: 40px; /* Adjust the size as needed */
+  width: 40px; 
   height: 40px;
 `;
 
+// Styled component for the footer
 const Footer = styled.footer`
   position: absolute;
   bottom: 100px;
   width: 100%;
   text-align: center;
-  color: #f9f9f9; /* Light grey color for the footer text */
+  color: #f9f9f9; 
 `;
 
 const ContactForm = () => {
   const form = useRef();
 
+  // Function to send email using emailjs
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -143,7 +156,7 @@ const ContactForm = () => {
     const formData = new FormData(form.current);
     const user_email = formData.get('user_email');
 
-    // Send the main email
+    // Send the main email to me from EmailJS with user's info
     emailjs.sendForm(serviceID, templateID, form.current, userID)
       .then((result) => {
         console.log(result.text);

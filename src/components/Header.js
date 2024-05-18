@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link as ScrollLink, scroller } from 'react-scroll';
 
+// Styled component for navigation links
 const StyledLink = styled(ScrollLink)`
   cursor: pointer;
   color: #AAA9AD;
@@ -24,12 +25,13 @@ const StyledLink = styled(ScrollLink)`
   }
 `;
 
+// Styled component for the header container
 const HeaderContainer = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: black; /* Set background color to black */
+  background-color: black;
   position: fixed;
   top: 0;
   left: 0;
@@ -37,6 +39,7 @@ const HeaderContainer = styled.header`
   z-index: 1000;
 `;
 
+// Styled component for the navigation bar
 const StyledHeader = styled.nav`
   display: flex;
   justify-content: space-evenly;
@@ -45,13 +48,14 @@ const StyledHeader = styled.nav`
 `;
 
 const Header = () => {
+  // Handle navigation click
   const handleNavigation = (targetId) => (event) => {
     event.preventDefault();
     scroller.scrollTo(targetId.substring(1), {
       duration: 800,
       delay: 0,
       smooth: 'easeInOutQuart',
-      offset: -70, // Adjust this value if you have a fixed header
+      offset: -70, // Offset for the header
     });
   };
 

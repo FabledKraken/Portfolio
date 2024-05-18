@@ -11,9 +11,11 @@ import { Element, scroller } from 'react-scroll';
 function App() {
   const sections = ['intro', 'skills', 'projects', 'work', 'contact'];
 
+  // Function to handle scroll direction
   const handleScroll = (direction) => {
     let currentSectionIndex;
 
+    // Determine current section
     for (let i = 0; i < sections.length; i++) {
       const element = document.getElementById(sections[i]);
       if (element && element.getBoundingClientRect().top >= 0) {
@@ -31,20 +33,23 @@ function App() {
       if (nextSectionIndex < 0) return;
     }
 
+    // Scroll to next section
     scroller.scrollTo(sections[nextSectionIndex], {
       duration: 800,
       delay: 0,
       smooth: 'easeInOutQuart',
-      offset: -70, // Adjust this value if you have a fixed header
+      offset: -70,
     });
   };
 
+  // Handle wheel event for scrolling
   const handleWheel = (event) => {
     event.preventDefault();
     const direction = event.deltaY > 0 ? 'down' : 'up';
     handleScroll(direction);
   };
 
+  // Handle key down event for arrow keys
   const handleKeyDown = (event) => {
     if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
       event.preventDefault();
@@ -54,6 +59,7 @@ function App() {
   };
 
   useEffect(() => {
+    // Add event listeners for wheel and keydown events
     const handleWheelEvent = (event) => handleWheel(event);
     window.addEventListener('wheel', handleWheelEvent, { passive: false });
 
@@ -61,6 +67,7 @@ function App() {
     window.addEventListener('keydown', handleKeyDownEvent);
 
     return () => {
+      // Cleanup event listeners on unmount
       window.removeEventListener('wheel', handleWheelEvent);
       window.removeEventListener('keydown', handleKeyDownEvent);
     };
@@ -71,12 +78,7 @@ function App() {
       <Header />
       <main>
         <Element name="intro" id="intro">
-          <IntroSection
-            titleFontSize="4em"
-            titleFontFamily="Helvetica, sans-serif"
-            descriptionFontSize="2em"
-            descriptionFontFamily="Helvetica, sans-serif"
-          />
+          <IntroSection />
         </Element>
         <Element name="skills" id="skills">
           <SkillsSection />

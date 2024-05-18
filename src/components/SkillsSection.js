@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import backgroundImage from '../assets/Skills_Page.jpg';
 
+// Styled component for the section
 const Section = styled.section`
   height: 100vh;
   background: url(${backgroundImage}) no-repeat center center;
@@ -12,46 +14,52 @@ const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white; /* Set font color to white */
+  color: white;
 `;
 
+// Styled component for the title
 const Title = styled.h2`
-  font-size: 5em; /* Increase font size to 5em */
+  font-size: 5em; 
   font-family: 'Helvetica, sans-serif';
   margin: 0;
   margin-bottom: 20px;
-  color: white; /* Set font color to white */
-  text-decoration: underline; /* Underline the title */
+  color: white; 
+  text-decoration: underline; 
 `;
 
+// Styled component for the content wrapper
 const ContentWrapper = styled.div`
-  background: rgba(0, 0, 0, 0.7); /* Add semi-transparent background for contrast */
+  background: rgba(0, 0, 0, 0.7);
   padding: 40px;
   border-radius: 10px;
-  max-width: 1200px; /* Limit the width for readability */
+  max-width: 1200px; 
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 `;
 
+// Styled component for the skills grid
 const SkillsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 20px;
   width: 100%;
-  justify-items: center; /* Center items horizontally */
-  align-items: center; /* Center items vertically */
+  justify-items: center; 
+  align-items: center; 
 `;
 
+// Styled component for individual skill items
 const SkillItem = styled.div`
-  font-size: 1.75em; /* Increase font size */
-  color: white; /* Change color to white */
-  text-align: center; /* Center text inside each grid item */
+  font-size: 1.75em; 
+  color: white; 
+  text-align: center; 
 `;
 
+// Styled component for highlighting text
 const Highlight = styled.span`
-  color: #FFD700; /* Gold color for highlighting */
+  color: #FFD700; 
 `;
 
+// Define the skills with highlighting
 const skills = [
   { skill: "C | C# | Objective C | C++", highlight: false },
   { skill: "Python | Java | SQL | Web | Git", highlight: true },
