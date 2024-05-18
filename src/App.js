@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import './App.css';
 import Header from './components/Header';
 import IntroSection from './components/IntroSection';
@@ -75,6 +76,10 @@ function App() {
 
   return (
     <div className="App">
+      <Helmet>
+        <title>Cole Eastlund's Portfolio</title>
+        <meta name="description" content="Portfolio of Cole Eastlund, showcasing skills, projects, and work experience." />
+      </Helmet>
       <Header />
       <main>
         <Element name="intro" id="intro">
