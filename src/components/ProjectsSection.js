@@ -76,7 +76,7 @@ const ProjectsSection = () => {
           Aimed to help PTSD patients and those with Autism.
         </Description>
       </ContentWrapper>
-      <GoogleDriveLink href="https://drive.google.com/drive/folders/1ys8RwtIt3z0g6ACqr6whnKqnUPiarvvw?usp=sharing" target="_blank" rel="noopener noreferrer">
+      <GoogleDriveLink href="https://drive.google.com/drive/folders/1_d9B0W6LUhPk4AL6HLYCLd3LqhAJ1qh9?usp=sharing" target="_blank" rel="noopener noreferrer">
         <Icon src={googleDriveIcon} alt="Google Drive" />
       </GoogleDriveLink>
     </Section>
